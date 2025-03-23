@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+#scratch and env
+/.vscode
+scratch/*.json
+scratch/*.csv
+scratch/.env
