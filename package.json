@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "lucide-react": "^0.487.0",
+    "next": "^15.2.4",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-scripts": "5.0.1"
   },
   "scripts": {
