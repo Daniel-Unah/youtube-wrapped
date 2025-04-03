@@ -1,6 +1,6 @@
 YouTube Wrapped UI
 
-This project is a sample user interface for a YouTube Wrapped application, built to provide an interactive experience for both logged-in and non-logged-in users. The application demonstrates key features such as Google login and personalized analytics for users who are logged in.
+This is a sample user interface for a YouTube Wrapped application, built to provide an interactive experience for both logged-in and non-logged-in users. The application demonstrates key features such as Google login and personalized analytics for users who are logged in.
 
 Features
 
