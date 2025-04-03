@@ -14,3 +14,5 @@ Usage
 
 Non-Logged-In User: When you open the app, the homepage shows featured content and prompts you to log in with Google to unlock personalized features.
 Logged-In User: Once logged in, the homepage will update to show your personalized YouTube Wrapped analytics, including visualizations of your viewing history.
+
+Screenshots of the UI are included
