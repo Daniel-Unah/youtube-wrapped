@@ -1,10 +1,10 @@
-require("dotenv").config();
+require("dotenv").config({ path: "../.env" });
 const express = require("express");
 const passport = require("passport");
 const session = require("express-session");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
-const requestTakeoutExport = require("./takeout"); // Puppeteer script
-const getTakeoutFile = require("./drive"); // Google Drive API script
+// const requestTakeoutExport = require("./takeout"); // Puppeteer script
+// const getTakeoutFile = require("./drive"); // Google Drive API script
 
 const app = express();
 
