@@ -44,13 +44,18 @@ app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "em
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/" }),
-  async (req, res) => {
+  (req, res) => {
     if (!req.user) return res.redirect("/");
-    
-    console.log("✅ Logged in successfully!");
-    await requestTakeoutExport(req.user.accessToken); // Trigger Takeout export
-    
-    res.send("Takeout request started! It may take a few minutes.");
+
+    // Display user info and OAuth tokens
+    const userInfo = {
+      name: req.user.displayName,
+      email: req.user.emails[0].value,
+      accessToken: req.user.accessToken,
+      refreshToken: req.user.refreshToken,
+    };
+
+    res.json(userInfo); // Send user info as JSON response
   }
 );
 
