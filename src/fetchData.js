@@ -5,12 +5,12 @@ const cheerio = require("cheerio");
 async function fetchTakeoutData(accessToken) {
   console.log("🔍 Fetching Takeout data...");
 
-  // 1. Set up auth
+  // Set up auth
   const auth = new google.auth.OAuth2();
   auth.setCredentials({ access_token: accessToken });
   const drive = google.drive({ version: "v3", auth });
 
-  // 2. Find the 'Takeout' folder
+  // Find the Takeout folder
   const folderRes = await drive.files.list({
     q: "name = 'Takeout' and mimeType = 'application/vnd.google-apps.folder'",
     fields: "files(id, name)",
@@ -27,7 +27,7 @@ async function fetchTakeoutData(accessToken) {
   const takeoutFolderId = folderRes.data.files[0].id;
   console.log(`📁 Found 'Takeout' folder with ID: ${takeoutFolderId}`);
 
-  // 3. List contents of the folder
+  // List contents of the folder
   const folderContents = await drive.files.list({
     q: `'${takeoutFolderId}' in parents`,
     fields: "files(id, name, mimeType, modifiedTime)",
@@ -42,7 +42,7 @@ async function fetchTakeoutData(accessToken) {
     console.log(`${idx + 1}. ${file.name} [${file.mimeType}]`);
   });
 
-  // 4. Find the most recent takeout ZIP
+  // Find the most recent takeout ZIP
   const zipFile = folderContents.data.files.find(file =>
     file.name.endsWith(".zip") && file.name.includes("takeout")
   );
@@ -54,7 +54,7 @@ async function fetchTakeoutData(accessToken) {
 
   console.log(`✅ Found takeout ZIP: ${zipFile.name}`);
 
-  // 5. Stream and unzip the file
+  // Stream and unzip the file
   const res = await drive.files.get(
     { fileId: zipFile.id, alt: "media" },
     { responseType: "stream" }
